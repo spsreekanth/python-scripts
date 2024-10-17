@@ -32,10 +32,20 @@ def get_vault_secret(vault_address, secret_path, service_account_file):
 
     return secret["data"]["data"]
 
+# Dictionary to store Vault URLs per environment
+vault_urls = {
+    "dev": "https://your-vault-dev-address.cloud.example.com",
+    "qa": "https://your-vault-qa-address.cloud.example.com",
+    "uat": "https://your-vault-uat-address.cloud.example.com",
+    "prod": "https://your-vault-prod-address.cloud.example.com"
+}
+
 # Example usage
-vault_address = "https://your-vault-address.cloud.example.com"
 secret_path = "secret/my-secret"
 service_account_file = "path/to/your/service-account.json"
 
-secret_data = get_vault_secret(vault_address, secret_path, service_account_file)
-print(secret_data)
+# Get secret for each environment
+for environment, vault_url in vault_urls.items():
+    secret_data = get_vault_secret(vault_url, secret_path, service_account_file)
+    print(f"Environment: {environment}")
+    print(f"Secret Data: {secret_data}")
