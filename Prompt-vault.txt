@@ -2,3 +2,5 @@ Create Python Script that reads vault secrets by authentication with GCP service
 
 Get Vault URLs per Environment Dev, QA , UAT and PROD
 
+
+curl --request GET "https://staging-verifications.adp.com/core/v3/associate-verifications/client-onboardings?startDate=2025-04-01&endDate=2025-04-22&status=new&pageNumber=0&pageSize=50" --cert ./ADPDataCloudCertificates.pem --key ./AdpDataCloudKey.key --header "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi..." --header "accept: application/json"
